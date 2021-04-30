@@ -1,0 +1,36 @@
+DROP DATABASE IF EXISTS ComputerShop;
+CREATE DATABASE ComputerShop;
+USE ComputerShop;
+
+CREATE TABLE kunde (
+	KundeId INTEGER AUTO_INCREMENT,
+    Nachname VARCHAR(30),
+	Vorname VARCHAR(30),
+    PRIMARY KEY(KundeId)
+);
+
+CREATE TABLE artikel (
+	ArtikelId INTEGER AUTO_INCREMENT,
+    Bezeichnung VARCHAR(30),
+    Preis DECIMAL(9, 2),
+    PRIMARY KEY (ArtikelId)
+);
+
+CREATE TABLE bestellung (
+	BestellungId INTEGER AUTO_INCREMENT,
+    Datum date,
+    KomplettLIeferung tinyint(1),
+    fk_KundeId INTEGER,
+    FOREIGN KEY (fk_KundeId) REFERENCES kunde(KundeId),
+    PRIMARY KEY (BestellungId)
+);
+
+CREATE TABLE BestehtAus (
+	BestehtAusId INTEGER AUTO_INCREMENT,
+    Anzahl INTEGER,
+    fk_BestellungId INTEGER,
+    fk_ArtikelId INTEGER,
+    FOREIGN KEY (fk_BestellungId) REFERENCES bestellung(BestellungId),
+    FOREIGN KEY (fk_ArtikelId) REFERENCES artikel(ArtikelId),
+    PRIMARY KEY (BestehtAusId)
+);

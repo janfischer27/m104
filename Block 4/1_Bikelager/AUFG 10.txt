@@ -1,0 +1,5 @@
+USE bikelager; SELECT typ.Bez AS "Typ" FROM typ WHERE TypId not in (SELECT bike.fk_TypId FROM Bike)
+
+oder (besser eher noch nicht)
+
+USE bikelager; SELECT typ.Bez AS "Typ" FROM bike RIGHT JOIN typ ON bike.fk_TypId = typ.TypId WHERE fk_TypId IS NULL;

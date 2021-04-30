@@ -1,0 +1,1 @@
+select ort.PLZ, ort.Bezeichnung, ort.Kanton, round(sum(artikel.Preis), 2) as 'Umsatz' from Ort, kunde, kauft, artikel where ort.ortId = kunde.fk_OrtId and kauft.fk_KundeId = kunde.KundeId and artikel.ArtikelId = kauft.fk_ArtikelId group by ort.OrtId order by Umsatz

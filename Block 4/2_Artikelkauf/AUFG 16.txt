@@ -1,0 +1,5 @@
+select kunde.Nachname, kunde.Vorname from Kunde where kunde.KundeId not in (select kauft.fk_KundeId from kauft where kauft.fk_KundeId = kunde.KundeId) order by kunde.Nachname
+
+---
+
+select kunde.Nachname, kunde.Vorname from Kunde left join kauft on kauft.fk_KundeId = kunde.KundeId where kauft.KauftId is NULL order by kunde.Nachname

@@ -1,0 +1,1 @@
+select Gruppe.Bezeichnung, count(Artikel.ArtikelId) as "AnzahlArtikel", round(sum(artikel.Preis),2) as "Umsatz" from Artikel, gruppe, kauft where Artikel.fk_GruppeId = Gruppe.GruppeId and kauft.fk_ArtikelId = artikel.ArtikelId group by gruppe.GruppeId order by Umsatz, gruppe.Bezeichnung

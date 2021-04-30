@@ -1,0 +1,22 @@
+//Tabelle mit Inhalt abfüllen
+
+INSERT INTO kunde (kunde.Nachname, kunde.Vorname) VALUES ('Mustermann', 'Max')
+
+//Tabellenname.Feldname nur notwendig, falls mehrere existieren könnten, also im besten fall immer verwenden.  
+
+//Wert abändern
+
+UPDATE kunde SET Nachname = 'Superman' WHERE kunde.KundeId = 1
+
+//Die Bedingung nach WHERE kann beliebig eingestellt werden, also z.B. auch kunde.Vorname = Max
+
+//Eintrag (Zeile) löschen
+
+DELETE FROM kunde WHERE KundeId = 1
+
+
+
+
+
+
+Falls im Auftrag "pro" steht, so braucht man group by

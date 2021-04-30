@@ -1,0 +1,1 @@
+SELECT typ.Bez AS 'Typ', AVG(bike.Preis) AS 'Durschnittspreis' FROM bike, typ WHERE bike.fk_TypId = typ.TypId AND typ.Bez = 'E-Bike'

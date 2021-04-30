@@ -1,0 +1,5 @@
+select artikel.Bezeichnung, artikel.Preis from Artikel where artikel.ArtikelId not in (select kauft.fk_ArtikelId from kauft) order by artikel.Bezeichnung
+
+----
+
+select artikel.Bezeichnung, artikel.Preis from kauft right join artikel on kauft.fk_ArtikelId = artikel.ArtikelId where kauft.kauftId is NULL

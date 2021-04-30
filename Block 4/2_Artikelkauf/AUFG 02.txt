@@ -1,0 +1,5 @@
+SELECT KundeId, Nachname, Vorname, ort.Bezeichnung FROM kunde, ort WHERE ort.OrtId = kunde.fk_OrtId ORDER BY Nachname
+
+--
+
+SELECT KundeId, Nachname, Vorname, ort.Bezeichnung FROM kunde Join ort on ort.OrtId = kunde.fk_OrtId ORDER BY Nachname

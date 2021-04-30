@@ -1,0 +1,1 @@
+select gruppe.Bezeichnung, count(artikel.ArtikelId) as "AnzahlArtikel" from Gruppe, Artikel where Artikel.fk_GruppeId = Gruppe.GruppeId group by gruppe.GruppeId order by AnzahlArtikel, gruppe.Bezeichnung

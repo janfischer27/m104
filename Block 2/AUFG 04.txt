@@ -1,0 +1,30 @@
+DROP DATABASE IF EXISTS ComputerShop;
+Create DATABASE ComputerShop;
+
+USE ComputerShop;
+
+CREATE TABLE kunde (
+    KundeId INTEGER AUTO_INCREMENT, 
+    Nachname varchar(30),
+    Vorname varchar(30),
+    
+    PRIMARY KEY(KundeId)
+);
+    
+CREATE TABLE bestellung (
+    BestellungsId integer AUTO_INCREMENT,
+    Datum date,
+    KomplettLieferung tinyint(1),
+    fk_ArtikelId int(11),
+    fk_KundenId int(11),
+    
+	PRIMARY KEY(BestellungsId)
+);
+
+CREATE TABLE artikel (
+    ArtikelId integer AUTO_INCREMENT,
+    Bezeichnung varchar(50),
+    Preis decimal(9,2),
+    
+    PRIMARY KEY(ArtikelId)
+);

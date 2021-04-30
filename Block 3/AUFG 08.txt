@@ -1,0 +1,2 @@
+USE fahrzeugpark;
+Update fahrzeug SET fk_MitarbeiterId = 1 WHERE Marke = 'VW' and Typ = 'Golf'

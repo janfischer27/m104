@@ -1,0 +1,1 @@
+SELECT marke.Bez AS "Marke", bike.Bez AS "Bike", bike.Preis AS "Preis" FROM bike, marke WHERE marke.MarkeId = bike.fk_MarkeId ORDER BY marke.Bez

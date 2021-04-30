@@ -1,0 +1,5 @@
+Insert into artikel(ArtikelId, Bezeichnung, Preis, fk_GruppeId) VALUES (5011, 'Weizenbier', 3.00, 2)
+
+-- and 
+
+Insert into kauft(KauftId, fk_KundeId, fk_ArtikelId) VALUES (15, 11, 5011)

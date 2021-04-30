@@ -1,0 +1,1 @@
+select kunde.Nachname, kunde.Vorname, round(sum(artikel.Preis), 2) as "Umsatz" from kunde, artikel, kauft where kunde.KundeId = kauft.fk_KundeId and artikel.ArtikelId = kauft.fk_ArtikelId group by kunde.KundeId order by Umsatz desc

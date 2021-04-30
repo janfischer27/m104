@@ -1,0 +1,3 @@
+USE fahrzeugpark;
+Update fahrzeug SET fk_MitarbeiterId = 1 WHERE FahrzeugId = 3;
+Update fahrzeug SET fk_MitarbeiterId = 2 WHERE FahrzeugId = 1;

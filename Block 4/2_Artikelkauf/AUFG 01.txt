@@ -1,0 +1,100 @@
+drop database if exists ArtikelKauf;
+create database ArtikelKauf;
+use ArtikelKauf;
+ 
+create table Ort (
+    OrtId integer not null,
+    PLZ varchar(50) not null,
+    Bezeichnung varchar(50),
+    Kanton varchar(50),
+    primary key(OrtId)
+);
+ 
+insert into Ort values (1000, "6020", "Emmenbrücke",   "LU");
+insert into Ort values (1001, "6000", "Luzern",        "LU");
+insert into Ort values (1002, "6204", "Sempach-Stadt", "LU");
+insert into Ort values (1003, "6023", "Rothenburg",    "LU");
+insert into Ort values (1004, "6210", "Sursee",        "LU");
+insert into Ort values (1005, "2740", "Moutier",       "BE");
+insert into Ort values (1006, "2747", "Seehof",        "BE");
+insert into Ort values (1007, "6370", "Stans",         "NW");
+ 
+create table Kunde
+(
+    KundeId integer not null,
+    Nachname varchar(50) not null,
+    Vorname varchar(50), 
+    fk_OrtId int,
+    primary key(KundeId),
+    foreign key (fk_OrtId) references Ort(OrtId)
+);
+ 
+insert into Kunde values (10, "Lopez",        "Hans",       1000);
+insert into Kunde values (11, "Bucher",       "Roland",     1002);
+insert into Kunde values (12, "Inderbitzin",  "Reto",       1003);
+insert into Kunde values (13, "Schnyder",     "Benedikt",   1003);
+insert into Kunde values (14, "Schneider",    "Armin",      1007);
+insert into Kunde values (15, "Schiffmann",   "David",      1007);
+insert into Kunde values (16, "Jacomet",      "Mario",      1007);
+insert into Kunde values (17, "Heggli",       "Carla",      1007);
+insert into Kunde values (18, "Jürgen",       "Franziska",  null);
+ 
+create table Gruppe
+(
+    GruppeId integer not null,
+    Bezeichnung varchar(50) not null,
+    primary key(GruppeId)
+);
+ 
+insert into Gruppe values (1, "Werkzeug");
+insert into Gruppe values (2, "Lebensmittel");
+insert into Gruppe values (3, "Möbel");
+insert into Gruppe values (4, "Geräte");
+insert into Gruppe values (5, "Kleider");
+ 
+create table Artikel
+(
+    ArtikelId integer not null,
+    Bezeichnung varchar(50) not null,
+    Preis float,
+    fk_GruppeId integer,
+  primary key(ArtikelId),
+    foreign key (fk_GruppeId) references Gruppe(GruppeId)
+);
+ 
+insert into Artikel values (5000, "Dremel Multischleifer",  65.00,  1);
+insert into Artikel values (5001, "Einhell Borhammer",      79.00,  1);
+insert into Artikel values (5002, "Einhell Multisäge",      49.00,  1);
+insert into Artikel values (5003, "Bosch Dekupiersäge",     129.00, 1);
+insert into Artikel values (5004, "Raclette Gerät Duo",     20.00,  4);
+insert into Artikel values (5005, "Relaxliege",             119.00, 3);
+insert into Artikel values (5006, "Kommode",                245.00, 3);
+insert into Artikel values (5007, "Tisch",                  540.00, 3);
+insert into Artikel values (5008, "Mineralwasser",          1.50,   2);
+insert into Artikel values (5009, "Brot",                   3.20,   2);
+insert into Artikel values (5010, "Duschgel",               4.45,   null);
+ 
+create table Kauft
+(
+    KauftId integer auto_increment,
+    fk_KundeId integer not null,
+    fk_ArtikelId integer not null,
+    primary key(KauftId),
+    foreign key (fk_KundeId) references Kunde(KundeId),
+    foreign key (fk_ArtikelId) references Artikel(ArtikelId)
+);
+ 
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (10, 5000);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (10, 5002);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (11, 5005);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (13, 5007);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (13, 5003);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (14, 5000);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (14, 5001);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (14, 5002);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (16, 5003);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (17, 5008);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (17, 5009);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (17, 5007);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (18, 5008);
+insert into Kauft (fk_KundeId, fk_ArtikelId) values (18, 5010);

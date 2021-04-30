@@ -1,0 +1,5 @@
+SELECT kunde.Nachname, Vorname, sum(artikel.preis) as "Umsatz" from artikel, kunde, kauft where artikel.ArtikelId = kauft.fk_ArtikelId and kauft.fk_KundeId = KundeId and kunde.KundeId = 14
+
+--
+
+?

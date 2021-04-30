@@ -1,0 +1,7 @@
+USE fahrzeugpark;
+UPDATE fahrzeug SET fk_MitarbeiterId = NULL WHERE fk_MitarbeiterId = 1
+
+---
+
+USE fahrzeugpark;
+DELETE FROM mitarbeiter WHERE MitarbeiterId = 1

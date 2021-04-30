@@ -1,0 +1,186 @@
+drop database if exists Stundenplan;
+create database Stundenplan;
+use Stundenplan;
+
+create table Lernender (
+	LernenderId integer auto_increment,
+	Nachname varchar(50),
+	Vorname varchar(50),
+	primary key(LernenderId)
+);
+
+create table Lehrperson (
+	LehrpersonId integer auto_increment,
+	Nachname varchar(50),
+	Vorname varchar(50),
+	primary key(LehrpersonId)
+);
+
+create table Klasse (
+	KlasseId integer auto_increment,
+	Bez varchar(10),
+	fk_LehrpersonId integer,
+	primary key(KlasseId),
+  foreign key(fk_LehrpersonId) references Lehrperson(LehrpersonId) 
+);
+
+create table Fach (
+	FachId integer auto_increment,
+	KurzBez varchar(5),
+	LangBez varchar(20),
+	primary key(FachId)
+);
+
+create table Raum (
+	RaumId integer auto_increment,
+	Bez varchar(10),
+	primary key(RaumId)
+);
+
+create table LeIstInKl (
+	LeIstInKlId integer auto_increment,
+	fk_LernenderId integer,
+  fk_KlasseId integer,
+	primary key(LeIstInKlId),
+  foreign key(fk_LernenderId) references Lernender(LernenderId),
+  foreign key(fk_KlasseId) references Klasse(KlasseId)
+);
+
+create table KlHatFa (
+	KlHatFaId integer auto_increment,
+	fk_FachId integer,
+  fk_KlasseId integer,
+	fk_LehrpersonId integer,
+	fk_RaumId integer,
+	primary key(KlHatFaId),
+  foreign key(fk_FachId) references Fach(FachId),
+  foreign key(fk_KlasseId) references Klasse(KlasseId),
+  foreign key(fk_LehrpersonId) references Lehrperson(LehrpersonId),
+  foreign key(fk_RaumId) references Raum(RaumId)
+);
+
+insert into Raum (Bez) values ("E01");
+insert into Raum (Bez) values ("E02");
+insert into Raum (Bez) values ("E03");
+insert into Raum (Bez) values ("101");
+insert into Raum (Bez) values ("102");
+insert into Raum (Bez) values ("201");
+insert into Raum (Bez) values ("202");
+insert into Raum (Bez) values ("203");
+insert into Raum (Bez) values ("204");
+insert into Raum (Bez) values ("205");
+
+insert into Fach (KurzBez, LangBez) values ("MAT", "Mathematik");
+insert into Fach (KurzBez, LangBez) values ("INF", "Informatik");
+insert into Fach (KurzBez, LangBez) values ("ENG", "Englisch");
+insert into Fach (KurzBez, LangBez) values ("ABU", "Allgemeinbildung");
+insert into Fach (KurzBez, LangBez) values ("SPO", "Sport");
+insert into Fach (KurzBez, LangBez) values ("BKU", "Berufskunde");
+insert into Fach (KurzBez, LangBez) values ("DEU", "Deutsch");
+
+insert into Lernender (Vorname, Nachname) values ("Esther", "Hodel");
+insert into Lernender (Vorname, Nachname) values ("Selina", "Muri");
+insert into Lernender (Vorname, Nachname) values ("Florian", "Koch");
+insert into Lernender (Vorname, Nachname) values ("Tamara", "Zihlmann");
+insert into Lernender (Vorname, Nachname) values ("Sabrina", "Isenschmid");
+insert into Lernender (Vorname, Nachname) values ("Vreni", "Walker");
+insert into Lernender (Vorname, Nachname) values ("Remo", "Jenni");
+insert into Lernender (Vorname, Nachname) values ("Ueli", "Merz");
+insert into Lernender (Vorname, Nachname) values ("Melanie", "Keller");
+insert into Lernender (Vorname, Nachname) values ("David", "Gisler");
+insert into Lernender (Vorname, Nachname) values ("Anja", "Graf");
+insert into Lernender (Vorname, Nachname) values ("Simone", "Studer");
+insert into Lernender (Vorname, Nachname) values ("Ivan", "Kurmann");
+insert into Lernender (Vorname, Nachname) values ("Lisa", "Marti");
+insert into Lernender (Vorname, Nachname) values ("Ivo", "Felder");
+insert into Lernender (Vorname, Nachname) values ("Michael", "Herger");
+insert into Lernender (Vorname, Nachname) values ("Lino", "Bieri");
+insert into Lernender (Vorname, Nachname) values ("Tanja", "Lang");
+insert into Lernender (Vorname, Nachname) values ("Chantal", "Tanner");
+insert into Lernender (Vorname, Nachname) values ("Lena", "Heer");
+insert into Lernender (Vorname, Nachname) values ("Andrea", "Baumann");
+insert into Lernender (Vorname, Nachname) values ("Claudia", "Scherrer");
+insert into Lernender (Vorname, Nachname) values ("Silvia", "Kunz");  
+insert into Lernender (Vorname, Nachname) values ("Sandra", "Suter");
+insert into Lernender (Vorname, Nachname) values ("Denise", "Beck"); 
+insert into Lernender (Vorname, Nachname) values ("Lara", "Wagner");
+insert into Lernender (Vorname, Nachname) values ("Adrian", "Spörri");
+insert into Lernender (Vorname, Nachname) values ("Oliver", "Furrer");
+insert into Lernender (Vorname, Nachname) values ("Samuel", "Gasser");
+insert into Lernender (Vorname, Nachname) values ("Pascal", "Sager");
+insert into Lernender (Vorname, Nachname) values ("Mario", "Rossi");
+insert into Lernender (Vorname, Nachname) values ("Julia", "Becker");
+insert into Lernender (Vorname, Nachname) values ("Doris", "Heim");
+insert into Lernender (Vorname, Nachname) values ("Jessica", "Maurer");
+insert into Lernender (Vorname, Nachname) values ("Kevin", "Schenker");
+insert into Lernender (Vorname, Nachname) values ("Fabian", "Zeller");
+insert into Lernender (Vorname, Nachname) values ("Marco", "Kälin");
+
+
+insert into Lehrperson (Vorname, Nachname) values ("Monika", "Rohrer");
+insert into Lehrperson (Vorname, Nachname) values ("Bruno", "Suter");
+insert into Lehrperson (Vorname, Nachname) values ("Nicole", "Birrer");
+insert into Lehrperson (Vorname, Nachname) values ("Max", "Wolf");
+insert into Lehrperson (Vorname, Nachname) values ("Fabio", "Schaub");
+insert into Lehrperson (Vorname, Nachname) values ("Maria", "Widmer");
+insert into Lehrperson (Vorname, Nachname) values ("Rita", "Peyer");
+insert into Lehrperson (Vorname, Nachname) values ("Urs", "Haas");
+insert into Lehrperson (Vorname, Nachname) values ("Robert", "Frick");
+
+insert into Klasse (Bez, fk_LehrpersonId) values ("INF1a", 4);
+insert into Klasse (Bez, fk_LehrpersonId) values ("INF1b", 1);
+insert into Klasse (Bez, fk_LehrpersonId) values ("INF2a", 3);
+insert into Klasse (Bez, fk_LehrpersonId) values ("INF2b", 2);
+insert into Klasse (Bez, fk_LehrpersonId) values ("MMA1a", 6);
+insert into Klasse (Bez, fk_LehrpersonId) values ("MMA2a", 2);
+
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (01, 1);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (07, 1);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (13, 1);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (20, 1);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (26, 1);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (32, 1);
+
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (02, 2);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (08, 2);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (14, 2);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (21, 2);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (27, 2);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (33, 2);
+
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (03, 3);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (09, 3);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (15, 3);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (22, 3);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (28, 3);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (34, 3);
+
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (04, 4);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (10, 4);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (16, 4);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (23, 4);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (29, 4);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (35, 4);
+
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (05, 5);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (11, 5);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (17, 5);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (24, 5);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (30, 5);
+insert into LeIstInKl (fk_LernenderId, fk_KlasseId) values (36, 5);
+
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (1, 2, 1, 1);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (1, 4, 6, 4);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (1, 5, 3, 5);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (2, 2, 2, 1);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (2, 3, 3, 2);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (3, 2, 1, 3);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (3, 4, 6, 4);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (3, 5, 4, 5);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (4, 1, 1, 2);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (4, 2, 2, 2);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (5, 2, 2, 6);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (5, 6, 4, 7);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (6, 6, 3, 9);
+insert into KlHatFa (fk_KlasseId, fk_FachId, fk_LehrpersonId, fk_RaumId) values (6, 5, 2, 1);
+

@@ -1,0 +1,1 @@
+select ort.PLZ, ort.Bezeichnung, ort.Kanton, count(Kunde.KundeId) as 'AnzahlKunde' from kunde, ort where Kunde.fk_OrtId = Ort.OrtId group by Ort.Bezeichnung order by AnzahlKunde desc

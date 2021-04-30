@@ -1,0 +1,1 @@
+select Nachname, Vorname, Artikel.Bezeichnung as "Artikel" from Artikel, kunde, kauft where Artikel.ArtikelId = kauft.fk_ArtikelId and kunde.KundeId = kauft.fk_KundeId and Artikel.Bezeichnung = "Mineralwasser" order by Nachname

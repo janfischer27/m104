@@ -1,0 +1,38 @@
+DROP DATABASE IF EXISTS FahrzeugPark;
+CREATE DATABASE FahrzeugPark;
+USE FahrzeugPark;
+
+CREATE TABLE Mitarbeiter (
+  MitarbeiterId INTEGER AUTO_INCREMENT,
+  Nachname VARCHAR(30),
+  Vorname VARCHAR(30),
+  PRIMARY KEY (MitarbeiterId)
+);
+
+CREATE TABLE Fahrzeug (
+  FahrzeugId INTEGER AUTO_INCREMENT,
+  Marke VARCHAR(50),
+  Typ VARCHAR(50),
+  NeuPreis DECIMAL(9, 2),
+  Jahrgang INTEGER,
+  Occasion BOOLEAN,
+  fk_MitarbeiterId INTEGER,
+  PRIMARY KEY (FahrzeugId),
+  FOREIGN KEY(fk_MitarbeiterId) REFERENCES Mitarbeiter(MitarbeiterId)
+);
+
+----
+
+Use fahrzeugpark;
+INSERT INTO mitarbeiter (Nachname, Vorname) VALUES ('Bühler', 'Cornelia');
+INSERT INTO mitarbeiter (Nachname, Vorname) VALUES ('Holzmann', 'Dieter');
+INSERT INTO mitarbeiter (Nachname, Vorname) VALUES ('Tobler', 'Franz')
+
+----
+
+USE fahrzeugpark;
+INSERT INTO fahrzeug (Marke, Typ, NeuPreis, Jahrgang, Occasion) VALUES ('Renualt', 'Talisman', '45000.00', '2017', '0');
+INSERT INTO fahrzeug (Marke, Typ, NeuPreis, Jahrgang, Occasion) VALUES ('VW', 'Golf', '12000.00', '2014', '1');
+INSERT INTO fahrzeug (Marke, Typ, NeuPreis, Jahrgang, Occasion) VALUES ('Mercedes', 'E220', '59000.00', '2017', '0');
+INSERT INTO fahrzeug (Marke, Typ, NeuPreis, Jahrgang, Occasion) VALUES ('VW', 'Caddy', '21000.00', '2018', '0');
+INSERT INTO fahrzeug (Marke, Typ, NeuPreis, Jahrgang, Occasion) VALUES ('VW', 'Caddy', '17000.00', '2019', '1');

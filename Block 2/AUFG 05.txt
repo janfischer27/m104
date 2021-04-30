@@ -1,0 +1,11 @@
+ALTER TABLE `bestellung` DROP `fk_ArtikelId`;
+
+---
+
+CREATE TABLE bestehtAus (
+    BestehtAusId INTEGER AUTO_INCREMENT, 
+    fk_BestellungsId varchar(30),
+    fk_ArikelId varchar(30),
+    
+    PRIMARY KEY(BestehtAusId)
+);

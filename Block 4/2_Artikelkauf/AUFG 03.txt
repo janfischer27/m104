@@ -1,0 +1,5 @@
+SELECT Nachname, Vorname, ort.Bezeichnung as "Ort", artikel.Bezeichnung as "Artikel" FROM kunde, ort, artikel, kauft WHERE ort.OrtId = kunde.fk_OrtId and kauft.fk_ArtikelId = artikel.ArtikelId  and kunde.KundeId = kauft.fk_KundeId ORDER BY Nachname
+
+--
+
+Select kunde.Nachname, kunde.Vorname, ort.Bezeichnung AS "Ort", artikel.Bezeichnung AS "Artikel" FROM kunde JOIN ort ON kunde.fk_OrtId = ort.OrtId JOIN kauft ON kunde.KundeId = kauft.fk_KundeId JOIN artikel ON kauft.fk_ArtikelId = artikel.ArtikelId ORDER By kunde.Nachname

@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS Kurswesen;
+CREATE DATABASE Kurswesen;
+USE Kurswesen;
+
+CREATE TABLE kurs (
+    KursId INTEGER AUTO_INCREMENT,
+    Bez VARCHAR(30),
+    MaxTeilnehmer INTEGER(30),
+    Kosten INTEGER(30),
+    StartDatum DATE,
+    Dauer DECIMAL (9,2),
+    PRIMARY KEY(KursId)
+    );
+    
+INSERT INTO kurs (kurs.Bez, kurs.MaxTeilnehmer, kurs.Kosten, kurs.StartDatum, kurs.Dauer) VALUES ('Windows 10', '10', '450', '2018.10.01', '2.5')
+
+------
+
+USE Kurswesen;
+INSERT INTO kurs (kurs.Bez, kurs.MaxTeilnehmer, kurs.Kosten, kurs.StartDatum) VALUES ('Word 2016', '5', '250', '2019.01.20')
+
+------
+
+USE Kurswesen;
+INSERT INTO kurs (kurs.Bez, kurs.MaxTeilnehmer, kurs.Kosten, kurs.StartDatum, kurs.Dauer) VALUES ('Office 2019 Neuheiten', '15', '150', '2019.03.15', '0.5')

@@ -1,0 +1,2 @@
+USE kurswesen;
+DELETE FROM kurs WHERE KursId= 2

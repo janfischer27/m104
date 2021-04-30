@@ -1,0 +1,2 @@
+USE kurswesen;
+UPDATE kurs SET MaxTeilnehmer= 12 WHERE MaxTeilnehmer < 12

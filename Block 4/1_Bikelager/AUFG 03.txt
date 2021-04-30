@@ -1,0 +1,1 @@
+SELECT Bez, Preis FROM `bike` WHERE fk_MarkeId = 1 AND fk_TypId = 4

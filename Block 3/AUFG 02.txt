@@ -1,0 +1,7 @@
+USE kurswesen;
+UPDATE kurs SET StartDatum = '2019.04.01' WHERE KursId = 1
+
+---
+
+USE kurswesen;
+UPDATE kurs SET MaxTeilnehmer= '15' WHERE KursId= 1

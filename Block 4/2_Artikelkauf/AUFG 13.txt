@@ -1,0 +1,5 @@
+select ort.PLZ, ort.Bezeichnung, ort.Kanton from Ort where ort.ortId not in (select kunde.fk_OrtId from kunde where kunde.fk_OrtId is not null) order by ort.Bezeichnung
+
+---
+
+select ort.PLZ, ort.Bezeichnung, ort.Kanton from kunde right join ort on kunde.fk_OrtId = ort.OrtId where kunde.KundeId is NULL order by ort.Bezeichnung

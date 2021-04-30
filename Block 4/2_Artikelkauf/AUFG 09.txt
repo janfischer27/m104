@@ -1,0 +1,1 @@
+select Artikel.Bezeichnung, Preis from Artikel where artikel.fk_GruppeId is NULL

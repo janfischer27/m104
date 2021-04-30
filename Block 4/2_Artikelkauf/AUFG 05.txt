@@ -1,0 +1,1 @@
+select Kunde.Nachname, Kunde.Vorname, count(artikel.Bezeichnung) as "Anzahl" from Kunde, Kauft, Artikel where Kauft.fk_KundeId = Kunde.KundeId and Kauft.fk_ArtikelId = Artikel.ArtikelId group by kunde.KundeId order by Anzahl desc, kunde.Nachname

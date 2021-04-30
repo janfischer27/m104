@@ -1,0 +1,7 @@
+USE kurswesen;
+INSERT INTO kurs (kurs.Bez, kurs.MaxTeilnehmer, kurs.Kosten, kurs.StartDatum, kurs.Dauer) VALUES ('Word 2019', '10', '320', '2019.04.15', '2')
+
+---
+
+USE kurswesen;
+INSERT INTO kurs (kurs.Bez, kurs.MaxTeilnehmer, kurs.Kosten, kurs.Dauer) VALUES ('Excel2019', '10', '320', '2')

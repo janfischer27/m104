@@ -1,0 +1,9 @@
+USE fahrzeugpark;
+ALTER TABLE fahrzeug ADD Kennzeichen varchar(15);
+
+---
+
+USE fahrzeugpark;
+Update fahrzeug SET Kennzeichen = 'LU 134 213' WHERE Marke = 'Mercedes' and Typ = 'GLA 200';
+Update fahrzeug SET Kennzeichen = 'LU 89 345' WHERE Marke = 'VW' and Typ = 'Golf';
+Update fahrzeug SET Kennzeichen = 'NW 8349' WHERE Marke = 'Renualt' and Typ = 'Talisman';

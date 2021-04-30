@@ -1,0 +1,2 @@
+ALTER TABLE `bestehtaus` 
+ADD `Anzahl` INT(11);
